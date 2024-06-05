@@ -18,7 +18,12 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 3: Append Characters to String to Make Subsequence](#june-3-append-characters-to-string-to-make-subsequence)
     - [Problem Statement](#problem-statement-3)
     - [Solution Explanation](#solution-explanation-3)
-  - [Contributing](#contributing)
+  - [June 4: Longest Palindrome](#june-4-longest-palindrome)
+    - [Problem Statement](#problem-statement-4)
+    - [Solution Explanation](#solution-explanation-4)
+  - [June 5: Find Common Characters](#june-5-find-common-characters)
+    - [Problem Statement](#problem-statement-5)
+    - [Solution Explanation](#solution-explanation-5)
 
 ## May 31: Single Number III
 
@@ -54,29 +59,19 @@ Output: [1,0]
 
 - 2 <= nums.length <= 30,000
 - -2^31 <= nums[i] <= 2^31 - 1
-- Each integer in nums will appear twice, only two integers will appear once.
+- Each integer in `nums` will appear twice, only two integers will appear once.
 
 ### Solution Explanation
 
 To solve this problem with a linear runtime complexity and using only constant extra space, we can use bitwise operations. Here’s a step-by-step explanation:
 
-1. **XOR All Elements**:
-   - XOR all the elements in the array. This operation will give us the XOR of the two unique elements, because the XOR of two identical elements is 0, and the XOR of any number with 0 is the number itself.
-   - Example: For the array `[1, 2, 1, 3, 2, 5]`, XORing all elements results in `3 ^ 5`.
+1. **Calculate XOR of All Elements**: Compute the XOR of all the elements in the array. The result will be the XOR of the two unique elements because the XOR of two identical elements is 0.
 
-2. **Find a Set Bit**:
-   - Find any set bit (bit with value 1) in the XOR result. This set bit helps us distinguish between the two unique elements, as it indicates that the two unique elements differ at that bit position.
-   - Example: For `3 ^ 5 = 6` (binary `110`), the rightmost set bit is `10` (or `2` in decimal).
+2. **Find a Set Bit**: Find any set bit (1-bit) in the result. This bit is set in one of the two unique numbers but not both.
 
-3. **Divide Elements into Two Groups**:
-   - Divide all the elements into two groups based on the set bit found in step 2. One group will have the elements with that bit set, and the other group will have the elements with that bit not set.
-   - Example: For the set bit `2`, the array `[1, 2, 1, 3, 2, 5]` is divided into `[2, 2, 3]` and `[1, 1, 5]`.
+3. **Divide Elements into Two Groups**: Divide all elements into two groups based on the set bit. XOR the elements in each group separately. The result will be the two unique numbers.
 
-4. **XOR Elements in Each Group**:
-   - XORing all elements in each group separately will cancel out the elements that appear twice, leaving only the unique elements.
-   - Example: XORing `[2, 2, 3]` results in `3` and XORing `[1, 1, 5]` results in `5`.
-
-For the full solution code, refer to the [`single_number_III.dart`](single_number_III.dart) file.
+You can find the implementation in the [single_number_III.dart](./single_number_III.dart) file.
 
 ## June 1: Score of a String
 
@@ -86,14 +81,12 @@ For the full solution code, refer to the [`single_number_III.dart`](single_numbe
 
 You are given a string `s`. The score of a string is defined as the sum of the absolute difference between the ASCII values of adjacent characters.
 
-Return the score of `s`.
-
 **Example 1:**
 
 ```
 Input: s = "hello"
 Output: 13
-Explanation: The ASCII values of the characters in `s` are: 'h' = 104, 'e' = 101, 'l' = 108, 'o' = 111. So, the score of `s` would be |104 - 101| + |101 - 108| + |108 - 108| + |108 - 111| = 3 + 7 + 0 + 3 = 13.
+Explanation: The ASCII values of the characters in s are: 'h' = 104, 'e' = 101, 'l' = 108, 'o' = 111. So, the score of s would be |104 - 101| + |101 - 108| + |108 - 108| + |108 - 111| = 3 + 7 + 0 + 3 = 13.
 ```
 
 **Example 2:**
@@ -101,32 +94,19 @@ Explanation: The ASCII values of the characters in `s` are: 'h' = 104, 'e' = 101
 ```
 Input: s = "zaz"
 Output: 50
-Explanation: The ASCII values of the characters in `s` are: 'z' = 122, 'a' = 97. So, the score of `s` would be |122 - 97| + |97 - 122| = 25 + 25 = 50.
+Explanation: The ASCII values of the characters in s are: 'z' = 122, 'a' = 97. So, the score of s would be |122 - 97| + |97 - 122| = 25 + 25 = 50.
 ```
 
 **Constraints:**
 
 - 2 <= s.length <= 100
-- `s` consists only of lowercase English letters.
+- s consists only of lowercase English letters.
 
 ### Solution Explanation
 
-To solve this problem, we need to calculate the sum of the absolute differences between the ASCII values of adjacent characters in the string. Here’s a step-by-step explanation:
+To calculate the score of the string, we need to find the sum of the absolute differences between the ASCII values of adjacent characters.
 
-1. **Initialize Score**:
-   - Initialize a variable `score` to 0 to keep track of the total score.
-
-2. **Calculate ASCII Values**:
-   - Convert the string `s` to a list of ASCII values using the `codeUnits` property in Dart.
-
-3. **Iterate Through Characters**:
-   - Iterate through the list of ASCII values from the second character to the end.
-   - For each character, calculate the absolute difference between its ASCII value and the ASCII value of the previous character, and add this difference to the `score`.
-
-4. **Return the Score**:
-   - After iterating through the string, return the final `score`.
-
-For the full solution code, refer to the [`score_of_a_string.dart`](score_of_a_string.dart) file.
+You can find the implementation in the [score_of_a_string.dart](./score_of_a_string.dart) file.
 
 ## June 2: Reverse String
 
@@ -134,9 +114,7 @@ For the full solution code, refer to the [`score_of_a_string.dart`](score_of_a_s
 
 [Reverse String](https://leetcode.com/problems/reverse-string/description/)
 
-Write a function that reverses a string. The input string is given as an array of characters `s`.
-
-You must do this by modifying the input array in-place with O(1) extra memory.
+Write a function that reverses a string. The input string is given as an array of characters `s`. You must do this by modifying the input array in-place with O(1) extra memory.
 
 **Example 1:**
 
@@ -154,33 +132,20 @@ Output: ["h","a","n","n","a","H"]
 
 **Constraints:**
 
-- 1 <= s.length <= 10^5
-- `s[i]` is a printable ASCII character.
+- 1 <= s.length <= 105
+- s[i] is a printable ascii character.
 
 ### Solution Explanation
 
-To solve this problem, we need to reverse the array of characters in place. Here’s a step-by-step explanation:
+To reverse the string in-place, we can use a two-pointer technique.
 
-1. **Initialize Two Pointers**:
-   - Use two pointers: one starting at the beginning (`left`) and one at the end (`right`) of the array.
-
-2. **Swap Characters**:
-   - Swap the characters at the `left` and `right` pointers.
-   - Move the `left` pointer one step to the right and the `right` pointer one step to the left.
-
-3. **Repeat Until Pointers Meet**:
-   - Continue swapping and moving the pointers until the `left` pointer is greater than or equal to the `right` pointer.
-
-4. **In-Place Modification**:
-   - The array is modified in place with O(1) extra memory.
-
-For the full solution code, refer to the [`reverse_string.dart`](reverse_string.dart) file.
+You can find the implementation in the [reverse_string.dart](./reverse_string.dart) file.
 
 ## June 3: Append Characters to String to Make Subsequence
 
 ### Problem Statement
 
-[Append Characters to String to Make Subsequence](https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/)
+[Append Characters to String to Make Subsequence](https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/description/)
 
 You are given two strings `s` and `t` consisting of only lowercase English letters.
 
@@ -193,7 +158,7 @@ A subsequence is a string that can be derived from another string by deleting so
 ```
 Input: s = "coaching", t = "coding"
 Output: 4
-Explanation: Append the characters "ding" to the end of s so that s = "coachingding". Now, t is a subsequence of s ("coachingding").
+Explanation: Append the characters "ding" to the end of s so that s = "coachingding". Now, t is a subsequence of s ("coachingding"). It can be shown that appending any 3 characters to the end of s will never make t a subsequence.
 ```
 
 **Example 2:**
@@ -209,35 +174,116 @@ Explanation: t is already a subsequence of s ("abcde").
 ```
 Input: s = "z", t = "abcde"
 Output: 5
-Explanation: Append the characters "abcde" to the end of s so that s = "zabcde".
+Explanation: Append the characters "abcde" to the end of s so that s = "zabcde". Now, t is a subsequence of s ("zabcde"). It can be shown that appending any 4 characters to the end of s will never make t a subsequence.
 ```
 
 **Constraints:**
 
-- 1 <= s.length, t.length <= 10^5
+- 1 <= s.length, t.length <= 105
 - `s` and `t` consist only of lowercase English letters.
 
 ### Solution Explanation
 
-To solve this problem, we need to determine the minimum number of characters to append to `s` so that `t` becomes a subsequence of `s`. Here’s a
+To find the minimum number of characters that need to be appended to `s` so that `t` becomes a subsequence of `s`, we can use a two-pointer technique:
 
- step-by-step explanation:
+1. **Initialize Pointers**: Use two pointers i and j to traverse the strings s and t respectively. Initialize both pointers to 0.
+2. **Traverse Both Strings**: Traverse through the string s using the pointer i. For each character in s, check if it matches the current character in t pointed to by j. If s[i] matches t[j], increment j to move to the next character in t.
+3. **Increment Pointer `i`**: Always increment the pointer `i` to continue traversing `s`.
+4. **Calculate Remaining Characters**: After traversing s, the pointer j will indicate the number of characters in t that have been matched. The remaining characters in t that haven't been matched (i.e., n - j, where n is the length of t) are the characters that need to be appended to s.
 
-1. **Initialize Pointers**:
-   - Use two pointers `i` and `j` to traverse the strings `s` and `t` respectively. Initialize both pointers to 0.
+You can find the implementation in the [append_characters_to_string_to_make_subsequence.dart](./append_characters_to_string_to_make_subsequence.dart) file.
 
-2. **Traverse Both Strings**:
-   - Traverse through the string `s` using the pointer `i`. For each character in `s`, check if it matches the current character in `t` pointed to by `j`.
-   - If `s[i]` matches `t[j]`, increment `j` to move to the next character in `t`.
+## June 4: Longest Palindrome
 
-3. **Increment Pointer `i`**:
-   - Always increment the pointer `i` to continue traversing `s`.
+### Problem Statement
 
-4. **Calculate Remaining Characters**:
-   - After traversing `s`, the pointer `j` will indicate the number of characters in `t` that have been matched. The remaining characters in `t` that haven't been matched (i.e., `n - j`, where `n` is the length of `t`) are the characters that need to be appended to `s`.
+[Longest Palindrome](https://leetcode.com/problems/longest-palindrome/description/)
 
-For the full solution code, refer to the [`append_characters_to_string.dart`](append_characters_to_string.dart) file.
+Given a string `s` which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
 
-## Contributing
+Letters are case sensitive, for example, "Aa" is not considered a palindrome.
 
-If you have a better solution or improvements, feel free to create a pull request. Let's learn and grow together!
+**Example 1:**
+
+```
+Input: s = "abccccdd"
+Output: 7
+Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
+```
+
+**Example 2:**
+
+```
+Input: s = "a"
+Output: 1
+Explanation: The longest palindrome that can be built is "a", whose length is 1.
+```
+
+**Constraints:**
+
+- 1 <= s.length <= 2000
+- `s` consists of lowercase and/or uppercase English letters only.
+
+### Solution Explanation
+
+To find the length of the longest palindrome that can be built with the given string `s`, we need to consider the frequencies of each character:
+
+1. **Character
+
+ Frequency Count**:
+   - Use a map to count the frequency of each character in the string `s`.
+
+2. **Count Odd Frequencies**:
+   - Traverse the frequency map and count how many characters have odd frequencies.
+
+3. **Calculate Palindrome Length**:
+   - If there are no characters with odd frequencies, the length of the palindrome is the length of the input string.
+   - If there are characters with odd frequencies, subtract one from the count of odd frequency characters to make them even (since we can only use one of them in the center of the palindrome).
+
+4. **Sum Frequencies**:
+   - Sum up the frequencies of all characters to get the length of the palindrome, then add 1 if there were characters with odd frequencies.
+
+You can find the implementation in the [longest_palindrome.dart](./longest_palindrome.dart) file.
+
+## June 5: Find Common Characters
+
+### Problem Statement
+
+[Find Common Characters](https://leetcode.com/problems/find-common-characters/description/)
+
+Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). You may return the answer in any order.
+
+**Example 1:**
+
+```
+Input: words = ["bella","label","roller"]
+Output: ["e","l","l"]
+```
+
+**Example 2:**
+
+```
+Input: words = ["cool","lock","cook"]
+Output: ["c","o"]
+```
+
+**Constraints:**
+
+- 1 <= words.length <= 100
+- 1 <= words[i].length <= 100
+- `words[i]` consists of lowercase English letters.
+
+### Solution Explanation
+
+To find all characters that appear in each string of the array `words`, we can use the following approach:
+
+1. **Initialize Frequency Counter**:
+   - Initialize a frequency counter for the first word.
+
+2. **Update Frequency Counter**:
+   - For each subsequent word, update the frequency counter to keep track of the minimum frequency of each character across all words.
+
+3. **Convert Frequency Counter to Result List**:
+   - Convert the frequency counter to a result list that includes characters appearing in all words.
+
+You can find the implementation in the [common_chars.dart](./find_common_characters.dart) file.
