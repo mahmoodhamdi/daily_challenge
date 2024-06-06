@@ -4,7 +4,7 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
 
 ## Challenges
 
-- [DailyChallenge-June2024](#dailychallenge-june2024)
+- [DailyChallenge-June202](#dailychallenge-june202)
   - [Challenges](#challenges)
   - [May 31: Single Number III](#may-31-single-number-iii)
     - [Problem Statement](#problem-statement)
@@ -24,6 +24,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 5: Find Common Characters](#june-5-find-common-characters)
     - [Problem Statement](#problem-statement-5)
     - [Solution Explanation](#solution-explanation-5)
+  - [June 6: Hand of Straights](#june-6-hand-of-straights)
+    - [Problem Statement](#problem-statement-6)
+    - [Solution Explanation](#solution-explanation-6)
 
 ## May 31: Single Number III
 
@@ -186,10 +189,10 @@ Explanation: Append the characters "abcde" to the end of s so that s = "zabcde".
 
 To find the minimum number of characters that need to be appended to `s` so that `t` becomes a subsequence of `s`, we can use a two-pointer technique:
 
-1. **Initialize Pointers**: Use two pointers i and j to traverse the strings s and t respectively. Initialize both pointers to 0.
-2. **Traverse Both Strings**: Traverse through the string s using the pointer i. For each character in s, check if it matches the current character in t pointed to by j. If s[i] matches t[j], increment j to move to the next character in t.
+1. **Initialize Pointers**: Use two pointers `i` and `j` to traverse the strings `s` and `t` respectively. Initialize both pointers to 0.
+2. **Traverse Both Strings**: Traverse through the string `s` using the pointer `i`. For each character in `s`, check if it matches the current character in `t` pointed to by `j`. If `s[i]` matches `t[j]`, increment `j` to move to the next character in `t`.
 3. **Increment Pointer `i`**: Always increment the pointer `i` to continue traversing `s`.
-4. **Calculate Remaining Characters**: After traversing s, the pointer j will indicate the number of characters in t that have been matched. The remaining characters in t that haven't been matched (i.e., n - j, where n is the length of t) are the characters that need to be appended to s.
+4. **Calculate Remaining Characters**: After traversing `s`, the pointer `j` will indicate the number of characters in `t` that have been matched. The remaining characters in `t` that haven't been matched (i.e., `n - j`, where `n` is the length of `t`) are the characters that need to be appended to `s`.
 
 You can find the implementation in the [append_characters_to_string_to_make_subsequence.dart](./append_characters_to_string_to_make_subsequence.dart) file.
 
@@ -226,11 +229,11 @@ Explanation: The longest palindrome that can be built is "a", whose length is 1.
 
 ### Solution Explanation
 
-To find the length of the longest palindrome that can be built with the given string `s`, we need to consider the frequencies of each character:
+To find the
 
-1. **Character
+ length of the longest palindrome that can be built with the letters of the string `s`, we can use the following approach:
 
- Frequency Count**:
+1. **Frequency Count**:
    - Use a map to count the frequency of each character in the string `s`.
 
 2. **Count Odd Frequencies**:
@@ -251,7 +254,7 @@ You can find the implementation in the [longest_palindrome.dart](./longest_palin
 
 [Find Common Characters](https://leetcode.com/problems/find-common-characters/description/)
 
-Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). You may return the answer in any order.
+Given a string array `words`, return an array of all characters that show up in all strings within the `words` (including duplicates). You may return the answer in any order.
 
 **Example 1:**
 
@@ -286,4 +289,56 @@ To find all characters that appear in each string of the array `words`, we can u
 3. **Convert Frequency Counter to Result List**:
    - Convert the frequency counter to a result list that includes characters appearing in all words.
 
-You can find the implementation in the [common_chars.dart](./find_common_characters.dart) file.
+You can find the implementation in the [common_chars.dart](./common_chars.dart) file.
+
+## June 6: Hand of Straights
+
+### Problem Statement
+
+[Hand of Straights](https://leetcode.com/problems/hand-of-straights/description/)
+
+Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size `groupSize`, and consists of `groupSize` consecutive cards.
+
+Given an integer array `hand` where `hand[i]` is the value written on the `i-th` card and an integer `groupSize`, return `true` if she can rearrange the cards, or `false` otherwise.
+
+**Example 1:**
+
+```
+Input: hand = [1,2,3,6,2,3,4,7,8], groupSize = 3
+Output: true
+Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8]
+```
+
+**Example 2:**
+
+```
+Input: hand = [1,2,3,4,5], groupSize = 4
+Output: false
+Explanation: Alice's hand cannot be rearranged into groups of 4.
+```
+
+**Constraints:**
+
+- 1 <= hand.length <= 10^4
+- 0 <= hand[i] <= 10^9
+- 1 <= groupSize <= hand.length
+
+### Solution Explanation
+
+To determine if the cards can be rearranged into groups of consecutive cards, we can use the following approach:
+
+1. **Check Group Size Compatibility**:
+   - If the total number of cards is not divisible by the group size, return false.
+
+2. **Sort the Hand**:
+   - Sort the hand to arrange the cards in ascending order.
+
+3. **Count Occurrences**:
+   - Use a map to count the occurrences of each card.
+
+4. **Form Groups**:
+   - Iterate through the sorted cards and try to form groups starting from each card. Decrease the count of the cards as they are used in groups. If any card needed to form a group is not available, return false.
+
+If all groups are successfully formed, return true.
+
+You can find the implementation in the [hand_of_straights.dart](./hand_of_straights.dart) file.
