@@ -4,7 +4,7 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
 
 ## Challenges
 
-- [DailyChallenge-June202](#dailychallenge-june202)
+- [DailyChallenge-June2024](#dailychallenge-june2024)
   - [Challenges](#challenges)
   - [May 31: Single Number III](#may-31-single-number-iii)
     - [Problem Statement](#problem-statement)
@@ -27,6 +27,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 6: Hand of Straights](#june-6-hand-of-straights)
     - [Problem Statement](#problem-statement-6)
     - [Solution Explanation](#solution-explanation-6)
+  - [June 7: Replace Words](#june-7-replace-words)
+    - [Problem Statement](#problem-statement-7)
+    - [Solution Explanation](#solution-explanation-7)
 
 ## May 31: Single Number III
 
@@ -82,7 +85,7 @@ You can find the implementation in the [single_number_III.dart](./single_number_
 
 [Score of a String](https://leetcode.com/problems/score-of-a-string/description/)
 
-You are given a string `s`. The score of a string is defined as the sum of the absolute difference between the ASCII values of adjacent characters.
+You are given a string s. The score of a string is defined as the sum of the absolute difference between the ASCII values of adjacent characters.
 
 **Example 1:**
 
@@ -117,7 +120,7 @@ You can find the implementation in the [score_of_a_string.dart](./score_of_a_str
 
 [Reverse String](https://leetcode.com/problems/reverse-string/description/)
 
-Write a function that reverses a string. The input string is given as an array of characters `s`. You must do this by modifying the input array in-place with O(1) extra memory.
+Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.
 
 **Example 1:**
 
@@ -150,9 +153,9 @@ You can find the implementation in the [reverse_string.dart](./reverse_string.da
 
 [Append Characters to String to Make Subsequence](https://leetcode.com/problems/append-characters-to-string-to-make-subsequence/description/)
 
-You are given two strings `s` and `t` consisting of only lowercase English letters.
+You are given two strings s and t consisting of only lowercase English letters.
 
-Return the minimum number of characters that need to be appended to the end of `s` so that `t` becomes a subsequence of `s`.
+Return the minimum number of characters that need to be appended to the end of s so that t becomes a subsequence of s
 
 A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
 
@@ -183,16 +186,16 @@ Explanation: Append the characters "abcde" to the end of s so that s = "zabcde".
 **Constraints:**
 
 - 1 <= s.length, t.length <= 105
-- `s` and `t` consist only of lowercase English letters.
+- s and t consist only of lowercase English letters.
 
 ### Solution Explanation
 
-To find the minimum number of characters that need to be appended to `s` so that `t` becomes a subsequence of `s`, we can use a two-pointer technique:
+To find the minimum number of characters that need to be appended to s so that t becomes a subsequence of s, we can use a two-pointer technique:
 
-1. **Initialize Pointers**: Use two pointers `i` and `j` to traverse the strings `s` and `t` respectively. Initialize both pointers to 0.
-2. **Traverse Both Strings**: Traverse through the string `s` using the pointer `i`. For each character in `s`, check if it matches the current character in `t` pointed to by `j`. If `s[i]` matches `t[j]`, increment `j` to move to the next character in `t`.
-3. **Increment Pointer `i`**: Always increment the pointer `i` to continue traversing `s`.
-4. **Calculate Remaining Characters**: After traversing `s`, the pointer `j` will indicate the number of characters in `t` that have been matched. The remaining characters in `t` that haven't been matched (i.e., `n - j`, where `n` is the length of `t`) are the characters that need to be appended to `s`.
+1. **Initialize Pointers**: Use two pointers i and j to traverse the strings s and t respectively. Initialize both pointers to 0.
+2. **Traverse Both Strings**: Traverse through the string s using the pointer i. For each character in s, check if it matches the current character in t pointed to by j. If s[i] matches t[j], increment j to move to the next character in t.
+3. **Increment Pointer i**: Always increment the pointer i to continue traversing s.
+4. **Calculate Remaining Characters**: After traversing s, the pointer j will indicate the number of characters in t that have been matched. The remaining characters in t that haven't been matched (i.e., n - j, where n is the length of t) are the characters that need to be appended to s.
 
 You can find the implementation in the [append_characters_to_string_to_make_subsequence.dart](./append_characters_to_string_to_make_subsequence.dart) file.
 
@@ -202,7 +205,7 @@ You can find the implementation in the [append_characters_to_string_to_make_subs
 
 [Longest Palindrome](https://leetcode.com/problems/longest-palindrome/description/)
 
-Given a string `s` which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
 
 Letters are case sensitive, for example, "Aa" is not considered a palindrome.
 
@@ -224,17 +227,17 @@ Explanation: The longest palindrome that can be built is "a", whose length is 1.
 
 **Constraints:**
 
-- 1 <= s.length <= 2000
-- `s` consists of lowercase and/or uppercase English letters only.
+- 1 <= s.length
+
+ <= 2000
+- s consists of lowercase and/or uppercase English letters only.
 
 ### Solution Explanation
 
-To find the
-
- length of the longest palindrome that can be built with the letters of the string `s`, we can use the following approach:
+To determine the length of the longest palindrome that can be built with the letters of the string s, we can use the following approach:
 
 1. **Frequency Count**:
-   - Use a map to count the frequency of each character in the string `s`.
+   - Use a map to count the frequency of each character in the string s.
 
 2. **Count Odd Frequencies**:
    - Traverse the frequency map and count how many characters have odd frequencies.
@@ -254,7 +257,7 @@ You can find the implementation in the [longest_palindrome.dart](./longest_palin
 
 [Find Common Characters](https://leetcode.com/problems/find-common-characters/description/)
 
-Given a string array `words`, return an array of all characters that show up in all strings within the `words` (including duplicates). You may return the answer in any order.
+Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). You may return the answer in any order.
 
 **Example 1:**
 
@@ -274,11 +277,11 @@ Output: ["c","o"]
 
 - 1 <= words.length <= 100
 - 1 <= words[i].length <= 100
-- `words[i]` consists of lowercase English letters.
+- words[i] consists of lowercase English letters.
 
 ### Solution Explanation
 
-To find all characters that appear in each string of the array `words`, we can use the following approach:
+To find all characters that appear in each string of the array words, we can use the following approach:
 
 1. **Initialize Frequency Counter**:
    - Initialize a frequency counter for the first word.
@@ -297,9 +300,9 @@ You can find the implementation in the [common_chars.dart](./common_chars.dart) 
 
 [Hand of Straights](https://leetcode.com/problems/hand-of-straights/description/)
 
-Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size `groupSize`, and consists of `groupSize` consecutive cards.
+Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size groupSize, and consists of groupSize consecutive cards.
 
-Given an integer array `hand` where `hand[i]` is the value written on the `i-th` card and an integer `groupSize`, return `true` if she can rearrange the cards, or `false` otherwise.
+Given an integer array hand where hand[i] is the value written on the i-th card and an integer groupSize, return true if she can rearrange the cards, or false otherwise.
 
 **Example 1:**
 
@@ -342,3 +345,56 @@ To determine if the cards can be rearranged into groups of consecutive cards, we
 If all groups are successfully formed, return true.
 
 You can find the implementation in the [hand_of_straights.dart](./hand_of_straights.dart) file.
+
+## June 7: Replace Words
+
+### Problem Statement
+
+[Replace Words](https://leetcode.com/problems/replace-words/description/)
+
+In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
+
+Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
+
+Return the sentence after the replacement.
+
+**Example 1:**
+
+```
+Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+Output: "the cat was rat by the bat"
+```
+
+**Example 2:**
+
+```
+Input: dictionary = ["a","b","c"], sentence = "aadsfasf absbs bbab cadsfafs"
+Output: "a a b c"
+```
+
+**Constraints:**
+
+- 1 <= dictionary.length <= 1000
+- 1 <= dictionary[i].length <= 100
+- `dictionary[i]` consists of only lowercase letters.
+- 1 <= sentence.length <= 10^6
+- sentence consists of only lowercase letters and spaces.
+- The number of words in sentence is in the range [1, 1000]
+- The length of each word in sentence is in the range [1, 1000]
+- Every two consecutive words in sentence will be separated by exactly one space.
+- sentence does not have leading or trailing spaces.
+
+### Solution Explanation
+
+To replace all derivatives in the sentence with the corresponding roots from the dictionary, we can use the following approach:
+
+1. **Build a Trie**:
+   - Insert all the roots from the dictionary into a Trie data structure.
+
+2. **Find Shortest Prefix**:
+   - For each word in the sentence, find the shortest prefix in the Trie that matches the start of the word. If such a prefix is found, replace the word with this prefix.
+
+3. **Reconstruct the Sentence**:
+   - Join the words after replacement to form the final sentence.
+
+You can find the implementation in the [replace_words.dart](./replace_words.dart) file.
