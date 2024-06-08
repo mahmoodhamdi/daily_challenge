@@ -30,6 +30,10 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 7: Replace Words](#june-7-replace-words)
     - [Problem Statement](#problem-statement-7)
     - [Solution Explanation](#solution-explanation-7)
+  - [June 8: Continuous Subarray Sum](#june-8-continuous-subarray-sum)
+    - [Problem Statement](#problem-statement-8)
+    - [Solution Explanation](#solution-explanation-8)
+  - [Contributing](#contributing)
 
 ## May 31: Single Number III
 
@@ -37,7 +41,7 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
 
 [Single Number III](https://leetcode.com/problems/single-number-iii/description/)
 
-Given an integer array `nums`, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
 
 **Example 1:**
 
@@ -65,7 +69,7 @@ Output: [1,0]
 
 - 2 <= nums.length <= 30,000
 - -2^31 <= nums[i] <= 2^31 - 1
-- Each integer in `nums` will appear twice, only two integers will appear once.
+- Each integer in nums will appear twice, only two integers will appear once.
 
 ### Solution Explanation
 
@@ -155,7 +159,7 @@ You can find the implementation in the [reverse_string.dart](./reverse_string.da
 
 You are given two strings s and t consisting of only lowercase English letters.
 
-Return the minimum number of characters that need to be appended to the end of s so that t becomes a subsequence of s
+Return the minimum number of characters that need to be appended to the end of s so that t becomes a subsequence of s.
 
 A subsequence is a string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.
 
@@ -222,14 +226,14 @@ Explanation: One longest palindrome that can be built is "dccaccd", whose length
 ```
 Input: s = "a"
 Output: 1
-Explanation: The longest palindrome that can be built is "a", whose length is 1.
+Explanation: The longest palindrome that can be
+
+ built is "a", whose length is 1.
 ```
 
 **Constraints:**
 
-- 1 <= s.length
-
- <= 2000
+- 1 <= s.length <= 2000
 - s consists of lowercase and/or uppercase English letters only.
 
 ### Solution Explanation
@@ -376,7 +380,7 @@ Output: "a a b c"
 
 - 1 <= dictionary.length <= 1000
 - 1 <= dictionary[i].length <= 100
-- `dictionary[i]` consists of only lowercase letters.
+- dictionary[i] consists of only lowercase letters.
 - 1 <= sentence.length <= 10^6
 - sentence consists of only lowercase letters and spaces.
 - The number of words in sentence is in the range [1, 1000]
@@ -398,3 +402,79 @@ To replace all derivatives in the sentence with the corresponding roots from the
    - Join the words after replacement to form the final sentence.
 
 You can find the implementation in the [replace_words.dart](./replace_words.dart) file.
+
+## June 8: Continuous Subarray Sum
+
+### Problem Statement
+
+[Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/description/)
+
+Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
+
+A good subarray is a subarray where:
+
+- Its length is at least two, and
+- The sum of the elements of the subarray is a multiple of k.
+
+Note that:
+- A subarray is a contiguous part of the array.
+- An integer x is a multiple of k if there exists an integer n such that `x = n * k`. 0 is always a multiple of k.
+
+**Example 1:**
+
+```
+Input: nums = [23,2,4,6,7], k = 6
+Output: true
+Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
+```
+
+**Example 2:**
+
+```
+Input: nums = [23,2,6,4,7], k = 6
+Output: true
+Explanation: [23, 2, 6, 4, 7] is a continuous subarray of size 5 whose elements sum up to 42.
+42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
+```
+
+**Example 3:**
+
+```
+Input: nums = [23,2,6,4,7], k = 13
+Output: false
+```
+
+**Constraints:**
+
+- 1 <= nums.length <= 10^5
+- 0 <= nums[i] <= 10^9
+- 0 <= sum(nums[i]) <= 2^31 - 1
+- 1 <= k <= 2^31 - 1
+
+### Solution Explanation
+
+To determine if there exists a subarray of at least two elements whose sum is a multiple of k, we can use the following approach:
+
+1. **Use a HashMap to Track Remainders**:
+   - Create a HashMap to store the first occurrence of each remainder when the prefix sum is divided by k.
+
+2. **Calculate Prefix Sums and Remainders**:
+   - Iterate through the array and calculate the prefix sum.
+   - For each prefix sum, calculate its remainder when divided by k.
+   - If this remainder has been seen before and the subarray length is at least 
+
+2, return true.
+
+3. **Handle Negative Remainders**:
+   - Ensure the remainder is non-negative by adjusting it if necessary.
+
+4. **Return Result**:
+   - If no valid subarray is found, return false.
+
+You can find the implementation in the [continuous_subarray_sum.dart](./continuous_subarray_sum.dart) file.
+
+## Contributing
+
+If you have a better solution or improvements, feel free to create a pull request or open an issue.
+
+Happy coding!
