@@ -33,6 +33,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 8: Continuous Subarray Sum](#june-8-continuous-subarray-sum)
     - [Problem Statement](#problem-statement-8)
     - [Solution Explanation](#solution-explanation-8)
+  - [June 9: Subarray Sums Divisible by K](#june-9-subarray-sums-divisible-by-k)
+    - [Problem Statement](#problem-statement-9)
+    - [Solution Explanation](#solution-explanation-9)
   - [Contributing](#contributing)
 
 ## May 31: Single Number III
@@ -472,6 +475,59 @@ To determine if there exists a subarray of at least two elements whose sum is a 
    - If no valid subarray is found, return false.
 
 You can find the implementation in the [continuous_subarray_sum.dart](./continuous_subarray_sum.dart) file.
+
+## June 9: Subarray Sums Divisible by K
+
+### Problem Statement
+
+[Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/description/)
+
+Given an integer array `nums` and an integer `k`, return the number of non-empty subarrays that have a sum divisible by `k`.
+
+A subarray is a contiguous part of an array.
+
+**Example 1:**
+
+```
+Input: nums = [4,5,0,-2,-3,1], k = 5
+Output: 7
+Explanation: There are 7 subarrays with a sum divisible by k = 5:
+[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
+```
+
+**Example 2:**
+
+```
+Input: nums = [5], k = 9
+Output: 0
+```
+
+**Constraints:**
+
+- 1 <= nums.length <= 3 * 10^4
+- -10^4 <= nums[i] <= 10^4
+- 2 <= k <= 10^4
+
+### Solution Explanation
+
+To count the number of subarrays whose sum is divisible by `k`, we can use the following approach:
+
+1. **Prefix Sum and Remainder**:
+   - Calculate the prefix sum of the array and the remainder when this sum is divided by `k`.
+
+2. **Count Remainders**:
+   - Use a list to store the frequency of each remainder when the prefix sums are divided by `k`.
+
+3. **Adjust Negative Remainders**:
+   - Ensure the remainder is non-negative by adjusting it if necessary.
+
+4. **Count Subarrays**:
+   - If a remainder has been seen before, it means there are subarrays that sum up to a multiple of `k`. Increment the count accordingly.
+
+5. **Update Remainder Count**:
+   - Update the frequency of the current remainder in the list.
+
+You can find the implementation in the [subarray_sums_divisible_by_k.dart](./subarray_sums_divisible_by_k.dart) file.
 
 ## Contributing
 
