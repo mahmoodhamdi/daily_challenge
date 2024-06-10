@@ -36,6 +36,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 9: Subarray Sums Divisible by K](#june-9-subarray-sums-divisible-by-k)
     - [Problem Statement](#problem-statement-9)
     - [Solution Explanation](#solution-explanation-9)
+  - [June 10: Height Checker](#june-10-height-checker)
+    - [Problem Statement](#problem-statement-10)
+    - [Solution Explanation](#solution-explanation-10)
   - [Contributing](#contributing)
 
 ## May 31: Single Number III
@@ -528,6 +531,72 @@ To count the number of subarrays whose sum is divisible by `k`, we can use the f
    - Update the frequency of the current remainder in the list.
 
 You can find the implementation in the [subarray_sums_divisible_by_k.dart](./subarray_sums_divisible_by_k.dart) file.
+
+## June 10: Height Checker
+
+### Problem Statement
+
+[Height Checker](https://leetcode.com/problems/height-checker/description/)
+
+A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.
+
+You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).
+
+Return the number of indices where heights[i] != expected[i].
+
+**Example 1:**
+
+```
+Input: heights = [1,1,4,2,1,3]
+Output: 3
+Explanation: 
+heights:  [1,1,4,2,1,3]
+expected: [1,1,1,2,3,4]
+Indices 2, 4, and 5 do not match.
+```
+
+**Example 2:**
+
+```
+Input: heights = [5,1,2,3,4]
+Output: 5
+Explanation:
+heights:  [5,1,2,3,4]
+expected: [1,2,3,4,5]
+All indices do not match.
+```
+
+**Example 3:**
+
+```
+Input: heights = [1,2,3,4,5]
+Output: 0
+Explanation:
+heights:  [1,2,3,4,5]
+expected: [1,2,3,4,5]
+All indices match.
+```
+
+**Constraints:**
+
+- 1 <= heights.length <= 100
+- 1 <= heights[i] <= 100
+
+### Solution Explanation
+
+To determine the number of indices where the current order of students' heights does not match the expected order, follow these steps:
+
+1. **Count Occurrences**:
+   - Create an array to count the occurrences of each height.
+
+2. **Create Expected Array**:
+   - Use the count array to construct the expected sorted array of heights.
+
+3. **Compare Arrays**:
+   - Compare the original heights array with the expected array and count the mismatches.
+
+You can find the implementation in the [height_checker.dart](./height_checker.dart) file.
+
 
 ## Contributing
 
