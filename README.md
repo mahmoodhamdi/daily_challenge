@@ -39,6 +39,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 10: Height Checker](#june-10-height-checker)
     - [Problem Statement](#problem-statement-10)
     - [Solution Explanation](#solution-explanation-10)
+  - [June 11: Relative Sort Array](#june-11-relative-sort-array)
+    - [Problem Statement](#problem-statement-11)
+    - [Solution Explanation](#solution-explanation-11)
   - [Contributing](#contributing)
 
 ## May 31: Single Number III
@@ -597,6 +600,54 @@ To determine the number of indices where the current order of students' heights 
 
 You can find the implementation in the [height_checker.dart](./height_checker.dart) file.
 
+## June 11: Relative Sort Array
+
+### Problem Statement
+
+[Relative Sort Array](https://leetcode.com/problems/relative-sort-array/description/)
+
+Given two arrays arr1 and arr2, the elements of arr2 are distinct, and all elements in arr2 are also in arr1.
+
+Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2. Elements that do not appear in arr2 should be placed at the end of arr1 in ascending order.
+
+**Example 1:**
+
+```
+Input: arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]
+Output: [2,2,2,1,4,3,3,9,6,7,19]
+```
+
+**Example 2:**
+
+```
+Input: arr1 = [28,6,22,8,44,17], arr2 = [22,28,8,6]
+Output: [22,28,8,6,17,44]
+```
+
+**Constraints:**
+
+- 1 <= arr1.length, arr2.length <= 1000
+- 0 <= arr1[i], arr2[i] <= 1000
+- All the elements of arr2 are distinct.
+- Each arr2[i] is in arr1.
+
+### Solution Explanation
+
+To sort arr1 according to the order defined by arr2, follow these steps:
+
+1. **Count Frequencies**:
+   - Create a frequency counter for elements in arr1.
+
+2. **Order by arr2**:
+   - Add elements from arr2 to the result list in the order they appear in arr2, using the frequency counter.
+
+3. **Sort Remaining Elements**:
+   - Add the remaining elements (those not in arr2) to a separate list and sort them.
+
+4. **Combine Results**:
+   - Combine the ordered elements from arr2 with the sorted remaining elements to form the final sorted array.
+
+You can find the implementation in the [relative_sort_array.dart](./relative_sort_array.dart) file.
 
 ## Contributing
 
