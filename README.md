@@ -42,6 +42,9 @@ Welcome to the June 2024 Daily Coding Challenge! This repository contains soluti
   - [June 11: Relative Sort Array](#june-11-relative-sort-array)
     - [Problem Statement](#problem-statement-11)
     - [Solution Explanation](#solution-explanation-11)
+  - [June 12: Sort Colors](#june-12-sort-colors)
+    - [Problem Statement](#problem-statement-12)
+    - [Solution Explanation](#solution-explanation-12)
   - [Contributing](#contributing)
 
 ## May 31: Single Number III
@@ -488,7 +491,7 @@ You can find the implementation in the [continuous_subarray_sum.dart](./continuo
 
 [Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/description/)
 
-Given an integer array `nums` and an integer `k`, return the number of non-empty subarrays that have a sum divisible by `k`.
+Given an integer array nums and an integer k, return the number of non-empty subarrays that have a sum divisible by k.
 
 A subarray is a contiguous part of an array.
 
@@ -648,6 +651,59 @@ To sort arr1 according to the order defined by arr2, follow these steps:
    - Combine the ordered elements from arr2 with the sorted remaining elements to form the final sorted array.
 
 You can find the implementation in the [relative_sort_array.dart](./relative_sort_array.dart) file.
+
+
+## June 12: Sort Colors
+
+### Problem Statement
+
+[Sort Colors](https://leetcode.com/problems/sort-colors/description/)
+
+Given an array nums with n objects colored red, white, or blue sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+**Example 1:**
+
+```
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+```
+
+**Example 2:**
+
+```
+Input: nums = [2,0,1]
+Output: [0,1,2]
+```
+
+**Constraints:**
+
+- `n == nums.length`
+- `1 <= n <= 300`
+- `nums[i]` is either `0`, `1`, or `2`.
+
+**Follow up:** Could you come up with a one-pass algorithm using only constant extra space?
+
+### Solution Explanation
+
+To sort the array in-place with one pass and constant extra space, we can use the Dutch National Flag algorithm. The algorithm maintains three pointers (low, mid, and high) to sort the array:
+
+1. **Initialize Pointers**:
+   - low and mid pointers start at the beginning of the array.
+   - high pointer starts at the end of the array.
+
+2. **Iterate Through the Array**:
+   - While mid is less than or equal to high:
+     - If nums[mid] is 0, swap nums[mid] and nums[low], then increment both low and mid.
+     - If nums[mid] is 1, just increment mid.
+     - If nums[mid] is 2, swap nums[mid] and nums[high], then decrement high.
+
+By following this approach, we ensure that the array is sorted with all 0 s at the beginning, 1s in the middle, and 2s at the end.
+
+You can find the implementation in the [sort_colors.dart](./sort_colors.dart) file.
 
 ## Contributing
 
